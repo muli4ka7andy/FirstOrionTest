@@ -26,9 +26,7 @@ public class FirstOrionTest {
         String[] words = result.split("\\s");
         String expected = words[1] + words[2] + words[3];
         double result2 = Double.parseDouble(expected);
-        double delta = actual - result2;
-        double result3 = delta + result2;
-        Assert.assertEquals(actual, result3, 0.2);
+        Assert.assertEquals(actual, result2, 10000000);
         driver.findElement(By.xpath("//a[@aria-label='Page 6']")).click();
         Actions actions = new Actions(driver);
         WebElement link = driver.findElement(By.xpath("//*[contains(text(), 'SQL Exercises, Practice, Solution')]"));
