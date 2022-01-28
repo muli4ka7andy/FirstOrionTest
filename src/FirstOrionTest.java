@@ -50,7 +50,6 @@ public class FirstOrionTest {
         }
         ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
-
         String backgroundColor = driver.findElement(By.cssSelector("body")).getCssValue("background-color");
         Assert.assertEquals("BackgroundColor is rgba(0, 0, 0, 0)", "BackgroundColor is " + backgroundColor);
         String currentYear = driver.findElement(By.xpath("//*[contains(text(), '©w3resource.com 2011-2022')]")).getText();
