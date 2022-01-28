@@ -6,9 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
 import java.awt.*;
 import java.awt.event.KeyEvent;
-
 import java.util.ArrayList;
 
 public class FirstOrionTest {
@@ -16,7 +16,7 @@ public class FirstOrionTest {
     public static final double actual = 67200000.00;
 
     @Test
-    public void Test(){
+    public void Test() {
         System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.get("https://www.google.com");
@@ -24,11 +24,11 @@ public class FirstOrionTest {
         driver.findElement(By.name("q")).sendKeys("sql table online" + Keys.chord(Keys.ENTER));
         String result = driver.findElement(By.id("result-stats")).getText();
         String[] words = result.split("\\s");
-        String expected = words[1]+words[2]+words[3];
+        String expected = words[1] + words[2] + words[3];
         double result2 = Double.parseDouble(expected);
         double delta = actual - result2;
         double result3 = delta + result2;
-        Assert.assertEquals(actual, result3 ,0.2);
+        Assert.assertEquals(actual, result3, 0.2);
         driver.findElement(By.xpath("//a[@aria-label='Page 6']")).click();
         Actions actions = new Actions(driver);
         WebElement link = driver.findElement(By.xpath("//*[contains(text(), 'SQL Exercises, Practice, Solution')]"));
